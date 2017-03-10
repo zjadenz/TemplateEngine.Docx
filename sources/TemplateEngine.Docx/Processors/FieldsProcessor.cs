@@ -47,7 +47,11 @@ namespace TemplateEngine.Docx.Processors
 				processResult.AddError(new ContentControlNotFoundError(field));
 				return processResult;
 			}
-			contentControl.ReplaceContentControlWithNewValue(field.Value);
+			
+			if (field.Value != null)
+			{
+				contentControl.ReplaceContentControlWithNewValue(field.Value);
+			}
 
 			processResult.AddItemToHandled(item);
 
